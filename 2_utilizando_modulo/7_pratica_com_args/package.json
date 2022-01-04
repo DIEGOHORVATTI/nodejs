@@ -1,0 +1,11 @@
+{
+  "name": "6_modulo_externo",
+  "version": "1.0.0",
+  "description": "estudo sobre modulos yarn",
+  "main": "index.js",
+  "author": "Div",
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.5"
+  }
+}
