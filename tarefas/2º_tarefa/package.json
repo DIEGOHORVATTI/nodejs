@@ -1,0 +1,10 @@
+{
+  "name": "tarefa_2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "4.1.2",
+    "inquirer": "^8.2.0"
+  }
+}
