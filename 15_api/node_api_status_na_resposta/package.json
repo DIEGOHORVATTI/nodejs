@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Eror: no testespecified\" && exit 1",
+    "start": "nodemon ./index.js localhost 3000"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
