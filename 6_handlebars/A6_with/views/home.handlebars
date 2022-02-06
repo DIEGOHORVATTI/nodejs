@@ -1,0 +1,15 @@
+<h1>ola '{{ user.apelido }}' {{ user.name }} você tem {{ user.age }} anos</h1>
+
+{{#if auth}}
+<p>
+  <a href="/painel">ver painel de usuario</a>
+</p>
+
+
+{{!-- para baixo else || acima if --}}
+{{ else }}
+<p>
+  <a href="/login">Logar</a>
+</p>
+
+{{/if}}
