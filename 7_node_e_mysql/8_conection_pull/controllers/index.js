@@ -4,9 +4,9 @@
 
 const express = require('express')
 const exphbs = require('express-handlebars')
-const mysql = require('mysql')
 const boxen = require('boxen')
 const chalk = require('chalk')
+const pool = require('../model/conn')
 
 const app = express()
 const port = 3000
@@ -30,7 +30,7 @@ app.get('/books', (req, res) => {
   // eslint-disable-next-line quotes
   const sql = 'SELECT * FROM Books'
 
-  conn.query(sql, function (err, data) {
+  pool.query(sql, function (err, data) {
     if (err) {
       console.log(
         boxen(`Erro no sql /books: ${chalk.red(err)}`,
@@ -58,7 +58,7 @@ app.get('/books/:id', function (req, res) {
 
   const sql = `SELECT * FROM Books WHERE id = ${id}`
 
-  conn.query(sql, function (err, data) {
+  pool.query(sql, function (err, data) {
     if (err) {
       console.log(
         boxen(`Erro no sql id => ${chalk.red(err)}`, {
@@ -94,7 +94,7 @@ app.post('/books/insertbook', (req, res) => {
   /* ${ano}-${mes}-${dia} */
   const sql = `INSERT INTO Books (title, pages) VALUES ( '${title}', '${pages}')`
 
-  conn.query(sql, function (err) {
+  pool.query(sql, function (err) {
     if (err) {
       console.log(
         boxen(`Erro no sql insertbook => ${chalk.red(err)}`, {
@@ -117,7 +117,7 @@ app.get('/books/edit/:id', (req, res)=>{
 
   const sql = `SELECT * FROM Books WHERE id = ${id}`
 
-  conn.query(sql, (err, data)=> {
+  pool.query(sql, (err, data)=> {
     if (err) {
       console.log(
         boxen(`Erro no sql edit => ${chalk.red(err)}`, {
@@ -143,7 +143,7 @@ app.post('/books/exclud/:id', (req, res) => {
 
   const sql = `DELETE FROM Books WHERE id = ${id}`
 
-  conn.query(sql, (err, data) => {
+  pool.query(sql, (err, data) => {
     if (err) {
       console.log(
         boxen(`Erro no sql delet => ${chalk.red(err)}`, {
@@ -180,7 +180,7 @@ app.get('/books/update', (req, res)=>{
 
   // eslint-disable-next-line quotes
   const sql = `UPDATE Books SET title = '${title}', pages = '${pages}' WHERE id = '${id}'`
-  conn.query(sql, function (err) {
+  pool.query(sql, function (err) {
     if (err) {
       console.log(
         boxen(`Erro no sql insertbook => ${chalk.red(err)}`, {
@@ -206,7 +206,7 @@ app.post('/books/updatebook', (req, res) => {
 
   const sql = `UPDATE Books SET title = '${title}', pages = '${pages}' WHERE id = '${id}';`
 
-  conn.query(sql, function (err) {
+  pool.query(sql, function (err) {
     if (err) {
       console.log(
         boxen(`Erro no sql bookupdate => ${chalk.red(err)}`, {
@@ -225,35 +225,9 @@ app.post('/books/updatebook', (req, res) => {
 
 /* ----- */
 
-const conn = mysql.createConnection({
-  host: 'localhost',
-  user: 'div',
-  password: '20020000',
-  database: 'nodemysql_2',
-})
-
-conn.connect((err) => {
-  if (err) {
-    console.log(
-      boxen(`Erro de conexão no banco: ${chalk.red(err)}`, {
-        margin: 1,
-        float: 'center',
-        padding: 1,
-        borderStyle: 'round',
-        borderColor: 'green',
-      })
-    )
-  }
-})
-
 app.listen(port, () => {
   console.log(
-    boxen(
-      `
-Aberto na porta ${chalk.red(port)}
-
-${chalk.green.bgCyan('Conectado ao MySQL!')}
-          `,
+    boxen(`Aberto na porta ${chalk.red(port)}`,
       {
         margin: 1,
         float: 'center',
