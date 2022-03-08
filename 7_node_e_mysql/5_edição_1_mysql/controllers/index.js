@@ -44,20 +44,13 @@ app.post('/books/insertbook', (req, res) => {
   conn.query(sql, function (err) {
     if (err) {
       console.log(
-        boxen(
-          `
-Erro no sql: ${chalk.red(err)}s
-
-${chalk.green.bgCyan('Conectado ao MySQL!')}
-          `,
-          {
-            margin: 1,
-            float: 'center',
-            padding: 1,
-            borderStyle: 'round',
-            borderColor: 'green',
-          }
-        )
+        boxen(`Erro no sql insertbook => ${chalk.red(err)}`, {
+          margin: 1,
+          float: 'center',
+          padding: 1,
+          borderStyle: 'round',
+          borderColor: 'green',
+        })
       )
     }
 
@@ -100,15 +93,13 @@ app.get('/books/:id', function (req, res) {
   conn.query(sql, function (err, data) {
     if (err) {
       console.log(
-        boxen(`Erro no sql :id ${chalk.red(err)}`,
-          {
-            margin: 1,
-            float: 'center',
-            padding: 1,
-            borderStyle: 'round',
-            borderColor: 'green',
-          }
-        )
+        boxen(`Erro no sql id => ${chalk.red(err)}`, {
+          margin: 1,
+          float: 'center',
+          padding: 1,
+          borderStyle: 'round',
+          borderColor: 'green',
+        })
       )
     }
 
@@ -124,13 +115,12 @@ app.get('/books/edit/:id', (req, res)=>{
 
   const id = req.params.id
 
-  // eslint-disable-next-line quotes
   const sql = `SELECT * FROM Books WHERE id = ${id}`
 
-  conn.query(sql, function(err, data){
+  conn.query(sql, (err, data)=> {
     if (err) {
       console.log(
-        boxen(`Erro no sql :id ${chalk.red(err)}`, {
+        boxen(`Erro no sql edit => ${chalk.red(err)}`, {
           margin: 1,
           float: 'center',
           padding: 1,
@@ -142,8 +132,64 @@ app.get('/books/edit/:id', (req, res)=>{
 
     const Book = data[0]
 
+    console.log(data[0])
+
     res.render('bookEdit', { Book })
   })
+})
+
+app.get('/books/:id', (req, res)=> {
+  const id = req.params.id
+
+  const sql = `SELECT * FROM Books WHERE id = ${id}`
+
+  conn.query(sql, (err, data)=> {
+    if (err) {
+      console.log(
+        boxen(`Erro no sql id => ${chalk.red(err)}`, {
+          margin: 1,
+          float: 'center',
+          padding: 1,
+          borderStyle: 'round',
+          borderColor: 'green',
+        })
+      )
+    }
+
+    const Book = data[0]
+
+    console.log(data[0])
+
+    res.render('book', { Book })
+  })
+})
+
+app.get('/books/update', (req, res)=>{
+  if (err) {
+    console.log(
+      boxen(`Erro no sql update => ${chalk.red(err)}`, {
+        margin: 1,
+        float: 'center',
+        padding: 1,
+        borderStyle: 'round',
+        borderColor: 'green',
+      })
+    )
+  }
+
+  const id = req.body.id
+  const title = req.body.title
+  const pages = req.body.pages
+
+  // eslint-disable-next-line quotes
+  const sql = `UPDATE Books SET title = ${title}, pages = ${pages} WHERE id = ${id}`
+  conn.query(sql, function(err, data){
+    
+  })
+
+  const Book = data[0]
+
+  res.render('bookEdit', { Book })
 })
 
 /* ----- */
