@@ -7,4 +7,5 @@ const sequelize = new Sequelize('sequelize', 'div', '20020000', {
   dialect: 'mysql',
 })
 
+
 module.exports = sequelize
