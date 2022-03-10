@@ -1,0 +1,22 @@
+<form action="/users/create" method="POST">
+  <h1>Cadastre seu Livro</h1>
+  <p>Preencha os dados abaixo</p>
+  
+  <div class="from">
+    <label for="name">nome:</label><br>
+    <input class="from_input" type="text" name="name" placeholder="Digite seu nome" />
+  </div>
+
+  <div class="from">
+    <label for="occupation">Profisão:</label>
+    <input class="from_input" type="text" name="occupation" placeholder="Qual sua profissão?" />
+  </div>
+
+  <div class="from_checkbox">
+    <input type="checkbox" name="newsletter" checked />
+    <label for="newsletter">Enviar promoções?</label>
+  </div>
+
+    <button type="submit">Cadastrar</button>
+    <a href="/"><h5>Ver Livros</h5></a>
+</form>
