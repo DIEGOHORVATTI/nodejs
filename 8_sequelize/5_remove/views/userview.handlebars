@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="item">
+    <p>{{user.name}}</p>
+    <p>{{user.occupation}}</p>
+    <i>{{user.newsletter}}</i>
+    <form action="/users/remove/{{user.id}}" method="post">
+      <input type="submit" value="Remover">
+    </form>
+  </div>
+</div>
