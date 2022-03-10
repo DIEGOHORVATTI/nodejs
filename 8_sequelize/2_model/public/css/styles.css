@@ -103,7 +103,7 @@ form input:focus{
   outline: none;
 }
 
-form input {
+.from_input{
   width: 100%;
 }
 
@@ -129,4 +129,14 @@ form button[type=submit] {
 
 form button[type=submit] i {
   margin-left: 5px;
+}
+
+.from_checkbox{
+  flex-direction: row;
+  margin-bottom: 1rem;
+
+}
+
+.from_checkbox input{
+  margin-right: 10px;
 }

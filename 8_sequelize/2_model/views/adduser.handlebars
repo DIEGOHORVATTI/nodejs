@@ -1,17 +1,22 @@
-<h1>adicione um usuário</h1>
-<form class="from-pai" action="/books/insertbook" method="POST">
+<form action="/users/create" method="POST">
   <h1>Cadastre seu Livro</h1>
   <p>Preencha os dados abaixo</p>
   
   <div class="from">
-    <label for="title">Título:</label><br>
-    <input type="text" name="title" placeholder="Digite o Título">
+    <label for="name">nome:</label><br>
+    <input class="from_input" type="text" name="name" placeholder="Digite seu nome" />
   </div>
 
   <div class="from">
-    <label for="pages">Número de páginas:</label>
-    <input type="number" name="pages" placeholder="Qunatas páginas o livro tem?">
+    <label for="occupation">Profisão:</label>
+    <input class="from_input" type="text" name="occupation" placeholder="Qual sua profissão?" />
   </div>
+
+  <div class="from_checkbox">
+    <input type="checkbox" name="newsletter" checked />
+    <label for="newsletter">Enviar promoções?</label>
+  </div>
+
     <button type="submit">Cadastrar</button>
-    <a href="/books"><h5>Ver Livros</h5></a>
+    <a href="/"><h5>Ver Livros</h5></a>
 </form>
