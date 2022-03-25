@@ -1,0 +1,17 @@
+<div class="container" style="width: 60rem;">
+  <div class="item">
+    <form action="/users/edit/{{useredit.id}}" method="post">
+      <input type="text" name="name" value="{{useredit.name}}"  />
+      <input type="text" name="occupation" value="{{useredit.occupation}}" />
+      <input type="checkbox" name="newsletter" value="{{useredit.newsletter}}" {{#if useredit.newsletter}}checked{{/if}}/>
+      <label for="newsletter">Enviar promoções?</label>
+      <br />
+      <input type="submit" value="Salvar">
+    </form>
+
+    <form action="/users/remove/{{user.id}}" method="post">
+      <input type="submit" value="Remover">
+    </form>
+
+  </div>
+</div>
