@@ -1,0 +1,123 @@
+.loft_menu {
+    padding: 10px;
+    background: linear-gradient(45deg, rgba(0, 0, 255, 0.4), rgba(255, 0, 0, 0.4));
+    border-radius: 10px;
+    position: fixed;
+    width: 200px;
+    height: 100px;
+    right: 10px;
+    bottom: 10px;
+}
+
+.loft_menu_header {
+    height: 50px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    
+}
+
+.relativo {
+    position: relative;
+}
+
+.img_menu {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+}
+
+.text_menu_body{
+    position: absolute;
+    top: 50px;
+    left: 70px;
+}
+
+.text_menu{
+    position: absolute;
+    display: inline;
+    width: 100%;
+    font-size: 14pt;
+    top: 0px;
+    left: 90px;
+    color: #ebebeb;
+}
+
+.Live{
+    position: absolute;
+    left: 0px;
+    top: 25px;
+    color: red;
+    font-size: 12pt;
+}
+
+/* imput de play */
+
+.form-check-toggle {
+    position: absolute;
+    left: 1rem;
+    line-height: 30px;
+}
+.form-check-toggle input {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 0%;
+    margin: 0;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.form-check-toggle input + span {
+    cursor: pointer;
+    user-select: none;
+    height: 30px;
+    margin-left: 70px;
+    display: block;
+}
+.form-check-toggle input + span:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    height: 25px;
+    width: 60px;
+    background: rgb(122, 122, 122);
+    border: solid 1px #969696;
+    transition: background 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    border-radius: 15px;
+}
+.form-check-toggle input + span:after {
+    width: 25px;
+    height: 25px;
+    margin-top: 1px;
+    margin-left: 1px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    background: #fff;
+    transition: margin-left 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    font-weight: bold;
+    content: '';
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 0 0 5px rgba(0, 0, 0, 0.05);
+}
+.form-check-toggle input:checked + span:after {
+    content: '';
+    margin-left: 35px;
+    box-shadow: none;
+}
+.form-check-toggle input:checked + span:before {
+    background-color: #88ff0073;
+    border-color: #86be4e;
+    transition: background 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}

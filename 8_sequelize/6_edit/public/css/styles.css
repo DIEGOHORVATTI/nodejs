@@ -3,14 +3,42 @@
 }
 
 body {
-  background-color: rgb(10, 0, 70);
-  color: #8ea7cc;
+  color: #15ff00;
   font-family: 'Poppins', sans-serif;
+}
+
+.fundo{
+  z-index: -1;
+  width: 100vw;
   height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  padding: 0px; 
+  background-image: url("../fundo.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100vw, 100vh;
+}
+
+.fundo:before{
+  content: "";
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  padding: 0px; 
+  background-color: rgba(0, 0, 0, 0.664);
+  background-position: center;
+  background-size: 100vw, 100vh;
 }
 
 a{
-  color: #93b1df;
+  color: #15ff00;
 }
 
 #navbar {
@@ -20,11 +48,10 @@ a{
   margin: 0 auto;
   text-align: center;
   text-decoration: none;
-  color: rgb(187, 245, 255);
+  color: #15ff00;
   display: inline-block;
   padding: .2rem;
   width: 100vw;
-  background-color: rgb(89, 0, 148);
 }
 
 #navbar li {
@@ -75,7 +102,7 @@ form{
 }
 
 form .from {
-  margin-bottom: 30px;
+  margin-bottom: 30px ;
   position: relative;
 }
 
@@ -115,7 +142,7 @@ form::placeholder {
 }
 
 form button[type=submit] {
-  background: #4c70ff;
+  background: #7e3af3;
   border: none;
   border-radius: 6px;
   color: #fff;
@@ -154,7 +181,7 @@ form button[type=submit] i {
 }
 
 .container .item{
-  border: 1px solid #444;
+  border: 1px solid #15ff00;
   border-radius: 5px;
   padding: 20px;
   flex: 1 1 29%;

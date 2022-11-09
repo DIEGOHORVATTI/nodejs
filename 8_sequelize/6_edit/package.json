@@ -4,7 +4,7 @@
   "main": "./controllers/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./controllers/index.js localhost 3000"
+    "start": "sudo systemctl start mysql.service && nodemon ./controllers/index.js localhost 3000"
   },
   "devDependencies": {
     "@babel/core": "^7.17.4",

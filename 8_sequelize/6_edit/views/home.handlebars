@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <div class="container">
   {{#each users}}
       <div class="item">
@@ -6,6 +8,8 @@
         <a href="/users/{{this.id}}">
           <p>ver detalhes</p>
         </a>
+        <a href="{{ this.occupation }}" target="blank" >ver link</p></a>
       </div>
   {{/each}}
+
 </div>
